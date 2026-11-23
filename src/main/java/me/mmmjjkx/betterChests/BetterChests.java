@@ -37,7 +37,7 @@ public final class BetterChests extends JavaPlugin implements SlimefunAddon {
 
         if (getServer().getPluginManager().isPluginEnabled("SlimeHUD")) {
             SlimeHUD.getHudController().registerCustomHandler(SimpleDrawer.class, req -> {
-                io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem item = req.getLegacySlimefunItem();
+                io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem item = req.getSlimefunItem();
                 if (item == null || !(item instanceof SimpleDrawer d)) return "";
                 Location loc = req.getLocation();
                 String itemName = LegacyComponentSerializer.legacyAmpersand().serialize(SimpleDrawer.getItemName(d.getStoringItem(loc)));
@@ -45,7 +45,7 @@ public final class BetterChests extends JavaPlugin implements SlimefunAddon {
             });
 
             SlimeHUD.getHudController().registerCustomHandler(IEStorageUnit.class, req -> {
-                io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem item = req.getLegacySlimefunItem();
+                io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem item = req.getSlimefunItem();
                 if (item == null || !(item instanceof IEStorageUnit d)) return "";
                 IEStorageCache cache = d.getCache(req.getLocation());
                 Location loc = req.getLocation();
